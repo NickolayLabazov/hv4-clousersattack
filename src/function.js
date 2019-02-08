@@ -1,35 +1,34 @@
 export const setUpAttacks = (items, shield = true) => {
-  
-  const result = []; 
+  const result = [];
 
-  if(!shield){
-    function func(i){
-      return function(harm){
-        items[i].health = items[i].health - harm;
+  function func(i) {
+    return function (harm) {
+      items[i].health = items[i].health - harm;
+      items = items.filter(elem => elem.health > 0);
       return items;
-      }
-    }
+    };
+  }
 
-    for (let i=0; i<items.length; i++){
+  function funcWithBonus(i) {
+    return function (harm) {
+      const harmInd = (harm - harm % 3) / 3;
+      for (const element of items) {
+        element.health -= harmInd;
+      }
+      items[i].health = items[i].health - harm % 3;
+      items = items.filter(elem => elem.health > 0);
+      return items;
+    };
+  }
+
+  if (!shield) {
+    for (let i = 0; i < items.length; i++) {
       result.push(func(i));
-    }  
-  }
-
-  else{
-    function funcWithBonus(i){
-      return function(harm){
-        const harmInd = (harm - harm%3)/3;
-        for (let element of items){
-          element.health = element.health - harmInd;
-        }
-        items[i].health = items[i].health - harm%3;
-      return items;
-      }
     }
-
-    for (let i=0; i<items.length; i++){
+  } else {
+    for (let i = 0; i < items.length; i++) {
       result.push(funcWithBonus(i));
-    } 
+    }
   }
-  return result; 
-} 
+  return result;
+};
