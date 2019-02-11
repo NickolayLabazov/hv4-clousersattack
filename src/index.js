@@ -1,6 +1,6 @@
-import { setUpAttacks } from './function.js';
+import setUpAttacks from './function';
 
-let characters = [
+const characters = [
   { name: 'Маг', health: 100 },
   { name: 'Лучник', health: 80 },
   { name: 'Мечник', health: 10 },
@@ -8,6 +8,6 @@ let characters = [
 
 const attacks = setUpAttacks(characters);
 
-characters = attacks[1](9);
+attacks[2](10);
 
 console.log(characters);
