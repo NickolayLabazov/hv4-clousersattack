@@ -3,6 +3,7 @@
     "rules": {
         "operator-assignment": "off",
         "no-restricted-syntax": "off",
+        "no-undef": "off",
         "no-param-reassign": "off"
      }
 }

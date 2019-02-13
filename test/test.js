@@ -107,7 +107,7 @@ test('Атака без бонусана на выбывшего персона�
   const received = setUpAttacks(characters, false)[1](10);
 
   expect(received).toEqual(expected);
-}); 
+});
 
 // Тесты для второго варианта решения
 /* test('Атака при наличии бонуса без выбывания', () => {
@@ -178,5 +178,4 @@ test('Атака без бонуса с выбыванием', () => {
   const received = setUpAttacks(characters, false)[2](10);
 
   expect(received).toEqual(expected);
-}); 
- */
+}); */

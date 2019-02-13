@@ -21,7 +21,7 @@ export default function setUpAttacks(items, shield = true) {
         const divHarm = harm % life;
         const harmInd = (harm - divHarm) / life;
         for (const element of items) {
-          if(element.health > 0) {
+          if (element.health > 0) {
             element.health -= harmInd;
           }
         }
